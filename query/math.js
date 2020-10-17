@@ -2,7 +2,7 @@ const { evaluate } = require("mathjs");
 
 module.exports = (query, data) => {
   try {
-    const result = evaluate(query);
+    const result = evaluate(query.replace(/x/g, "*"));
     if (typeof result === "number") {
       data.answer = result.toString();
     } else if (typeof result === "string") {
