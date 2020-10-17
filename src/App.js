@@ -25,9 +25,10 @@ export default () => {
           autoFocus
         />
       </form>
+      {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
         <div className="item" key={i}>
-          <p>{item.text}</p>
+          {item.text}
         </div>
       ))}
     </Twemoji>
