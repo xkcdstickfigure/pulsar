@@ -67,6 +67,8 @@ if (!isDev) autoLauncher.enable();
 
 // Update Window Height
 ipcMain.on("set-height", (_event, height) => {
-  win.setSize(win.getSize()[0], height);
+  const width = win.getSize()[0];
+  win.setMinimumSize(width, height);
+  win.setSize(width, height);
   win.center();
 });
