@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    font-family: Inter;
+    height: 100%;
+    overflow: hidden;
+    background: #1e1e1e;
+}
+
+input {
+    font-family: Inter;
+    border: none;
+    width: 100%;
+    height: 75px;
+    padding: 12px 20px;
+    font-size: 40px;
+    outline: none;
+    background: none;
+    color: #d0d0d0;
+}
