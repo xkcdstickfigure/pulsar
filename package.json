@@ -1,0 +1,13 @@
+{
+  "name": "pulsar",
+  "version": "0.0.1",
+  "scripts": {
+    "format": "prettier --write \"**/*.+(js|json)\""
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "electron": "^10.1.3"
+  }
+}
