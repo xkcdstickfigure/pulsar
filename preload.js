@@ -22,4 +22,5 @@ window.Pulsar = {
       ipcRenderer.on(`query-${id}`, (_event, data) => resolve(data));
       ipcRenderer.send("query", id, query);
     }),
+  close: () => {},
 };

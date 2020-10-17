@@ -5,6 +5,7 @@ import "./inter/inter.css";
 
 export default () => {
   const [query, setQuery] = useState("");
+  const [selection, setSelection] = useState(0);
   const [data, setData] = useState({
     items: [],
   });
@@ -14,20 +15,39 @@ export default () => {
     window.Pulsar.query(query).then((response) => setData(response));
   }, [query]);
 
+  // Key Press
+  document.onkeydown = (e) => {
+    if (e.key === "Escape") {
+      window.Pulsar.close();
+    } else if (e.key === "ArrowUp") {
+      if (selection <= 0) {
+        setSelection(data.items.length - 1);
+      } else {
+        setSelection(selection - 1);
+      }
+    } else if (e.key === "ArrowDown") {
+      if (selection >= data.items.length - 1) {
+        setSelection(0);
+      } else {
+        setSelection(selection + 1);
+      }
+    }
+  };
+
   const formSubmit = (e) => e.preventDefault();
 
   return (
     <Twemoji>
       <form onSubmit={formSubmit}>
         <input
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value.trim())}
           placeholder="What's up?"
           autoFocus
         />
       </form>
       {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
-        <div className="item" key={i}>
+        <div className={`item ${selection === i ? "selected" : ""}`} key={i}>
           {item.text}
         </div>
       ))}
