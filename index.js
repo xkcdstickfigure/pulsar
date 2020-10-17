@@ -1,11 +1,6 @@
-const {
-  app,
-  BrowserWindow,
-  globalShortcut,
-  ipcMain,
-  screen,
-} = require("electron");
+const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const isDev = require("electron-is-dev");
+const handleQuery = require("./query");
 
 // Prevent Multiple Instances
 if (!app.requestSingleInstanceLock()) {
@@ -72,3 +67,8 @@ ipcMain.on("set-height", (_event, height) => {
   win.setSize(width, height);
   win.center();
 });
+
+// Query
+ipcMain.on("query", async (event, id, query) =>
+  event.reply(`query-${id}`, await handleQuery(query))
+);

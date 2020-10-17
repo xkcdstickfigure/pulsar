@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
 
 export default () => {
   const [query, setQuery] = useState("");
+  const [data, setData] = useState({
+    items: [],
+  });
+
+  // Handle Input
+  useEffect(() => {
+    window.Pulsar.query(query).then((response) => setData(response));
+  }, [query]);
+
   const formSubmit = (e) => e.preventDefault();
 
   return (
@@ -16,7 +25,9 @@ export default () => {
           autoFocus
         />
       </form>
-      {query.length > 3 && <p>test</p>}
+      {data.items.map((item) => (
+        <p>{item}</p>
+      ))}
     </Twemoji>
   );
 };
