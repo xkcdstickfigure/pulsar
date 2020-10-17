@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
 
 export default () => {
-  const input = (value) => {
-    window.Pulsar.setHeight(75 + value.length * 10);
-  };
-
+  const [query, setQuery] = useState("");
   const formSubmit = (e) => e.preventDefault();
 
   return (
     <Twemoji>
       <form onSubmit={formSubmit}>
         <input
-          onChange={(e) => input(e.target.value.trim())}
+          onChange={(e) => setQuery(e.target.value)}
           placeholder="What's up?"
           autoFocus
         />
       </form>
+      {query.length > 3 && <p>test</p>}
     </Twemoji>
   );
 };
