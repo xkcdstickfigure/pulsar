@@ -34,7 +34,19 @@ export default () => {
     }
   };
 
-  const formSubmit = (e) => e.preventDefault();
+  // Form Submit
+  const formSubmit = (e) => {
+    e.preventDefault();
+    action(data.items[selection]);
+  };
+
+  // Action
+  const action = async (item) => {
+    if (item) {
+      if (item.url) await window.Pulsar.openUrl(item.url);
+    }
+    window.Pulsar.close();
+  };
 
   return (
     <Twemoji>
@@ -47,7 +59,12 @@ export default () => {
       </form>
       {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
-        <div className={`item ${selection === i ? "selected" : ""}`} key={i}>
+        <div
+          className={`item ${selection === i ? "selected" : ""}`}
+          key={i}
+          onMouseOver={() => setSelection(i)}
+          onClick={() => action(item)}
+        >
           {item.text}
         </div>
       ))}

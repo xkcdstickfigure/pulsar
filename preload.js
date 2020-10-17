@@ -1,4 +1,4 @@
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, shell } = require("electron");
 const randomString = require("randomstring").generate;
 
 // Set window height
@@ -23,4 +23,5 @@ window.Pulsar = {
       ipcRenderer.send("query", id, query);
     }),
   close: () => {},
+  openUrl: (url) => shell.openExternal(url),
 };
