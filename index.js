@@ -1,7 +1,11 @@
-const { app, BrowserWindow, globalShortcut } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  globalShortcut,
+  ipcMain,
+  screen,
+} = require("electron");
 const isDev = require("electron-is-dev");
-const axios = require("axios");
-const fs = require("fs");
 
 // Prevent Multiple Instances
 if (!app.requestSingleInstanceLock()) {
@@ -23,7 +27,7 @@ const createWindow = () => {
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true,
+      preload: `${__dirname}/preload.js`,
     },
     show: false,
   });
@@ -60,3 +64,9 @@ const autoLauncher = new AutoLaunch({
   name: "Pulsar",
 });
 if (!isDev) autoLauncher.enable();
+
+// Update Window Height
+ipcMain.on("set-height", (_event, height) => {
+  win.setSize(win.getSize()[0], height);
+  win.center();
+});

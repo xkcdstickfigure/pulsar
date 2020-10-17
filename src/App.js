@@ -4,8 +4,10 @@ import "./style.css";
 import "./inter/inter.css";
 
 export default () => {
+  let h = 75;
   const input = (value) => {
-    console.log(value);
+    h++;
+    window.Pulsar.setHeight(h);
   };
 
   const formSubmit = (e) => e.preventDefault();
