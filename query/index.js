@@ -1,7 +1,14 @@
+const handlers = ["math"];
+
 module.exports = async (query) => {
-  return {
-    items: query.split("").map((char, i) => ({
-      text: `Character ${i}: ${char}`,
-    })),
+  const data = {
+    items: [],
   };
+
+  for (let i = 0; i < handlers.length; i++) {
+    await require(`./${handlers[i]}`)(query, data);
+  }
+
+  data.items = data.items.slice(0, 10);
+  return data;
 };
