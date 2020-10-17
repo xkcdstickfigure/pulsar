@@ -6,6 +6,10 @@ html, body {
     background: #1e1e1e;
 }
 
+form, p {
+    margin: 0;
+}
+
 input {
     font-family: Inter;
     border: none;
@@ -16,4 +20,30 @@ input {
     outline: none;
     background: none;
     color: #d0d0d0;
+}
+
+.item, .answer {
+    border-top: solid 1px #3b3b3b;
+    color: #d0d0d0;
+    padding: 10px 20px;
+}
+
+.answer {
+    font-size: 30px;
+    padding-left: 15px;
+    border-left: solid 5px #d0d0d0;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.item.selected {
+    background: #2e2e2e;
+}
+
+.emoji {
+    height: 1em;
+    vertical-align: middle;
+    display: inline-block;
 }
