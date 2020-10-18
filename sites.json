@@ -1,0 +1,20 @@
+{
+  "google": "https://google.com",
+  "ggl": "https://google.com",
+  "localhost": "http://localhost",
+  "3000": "http://localhost:3000",
+  "yt": "https://youtube.com",
+  "youtube": "https://youtube.com",
+  "twitter": "https://twitter.com",
+  "t": "https://twitter.com",
+  "m": "https://micro.alles.cx",
+  "micro": "https://micro.alles.cx",
+  "duck": "https://duckduckgo.com",
+  "ddg": "https://duckduckgo.com",
+  "gh": "https://github.com",
+  "github": "https://github.com",
+  "alles": "https://alles.cx",
+  "video": "https://video.alles.cx",
+  "v": "https://video.alles.cx",
+  "discord": "https://discord.com/app"
+}
