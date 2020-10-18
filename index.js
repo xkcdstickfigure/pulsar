@@ -23,6 +23,7 @@ const createWindow = () => {
     alwaysOnTop: true,
     webPreferences: {
       preload: `${__dirname}/preload.js`,
+      enableRemoteModule: true,
     },
     show: false,
   });
