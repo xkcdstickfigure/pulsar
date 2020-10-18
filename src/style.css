@@ -4,6 +4,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     background: #1e1e1e;
+    -webkit-user-select: none;
 }
 
 form {
@@ -26,17 +27,13 @@ input {
     border-top: solid 1px #3b3b3b;
     color: #d0d0d0;
     padding: 10px 20px;
+    white-space: nowrap;
 }
 
 .answer {
     font-size: 30px;
     padding-left: 15px;
     border-left: solid 5px #d0d0d0;
-}
-
-.item {
-    cursor: pointer;
-    white-space: nowrap;
 }
 
 .item.selected {
