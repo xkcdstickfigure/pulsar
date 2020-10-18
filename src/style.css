@@ -36,6 +36,7 @@ input {
 
 .item {
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .item.selected {
