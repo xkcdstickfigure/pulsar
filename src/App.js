@@ -3,16 +3,19 @@ import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
 
+const emptyData = {
+  items: [],
+};
+
 export default () => {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState(0);
-  const [data, setData] = useState({
-    items: [],
-  });
+  const [data, setData] = useState(emptyData);
 
   // Handle Input
   useEffect(() => {
-    window.Pulsar.query(query).then((response) => setData(response));
+    if (query) window.Pulsar.query(query).then((response) => setData(response));
+    else setData(emptyData);
   }, [query]);
 
   // Key Press
