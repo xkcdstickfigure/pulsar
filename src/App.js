@@ -14,7 +14,9 @@ export default () => {
 
   // Handle Input
   useEffect(() => {
-    if (query) window.Pulsar.query(query).then((response) => setData(response));
+    if (query) window.Pulsar.query(query).then((response) => {
+      if (query) setData(response);
+    });
     else setData(emptyData);
   }, [query]);
 
