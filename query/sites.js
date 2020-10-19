@@ -1,10 +1,11 @@
 const sites = require("../sites");
 
 module.exports = (query, data) => {
-  if (sites[query]) {
+  const site = sites[query.toLowerCase()];
+  if (site) {
     data.items.push({
-      text: `=> ${sites[query]}`,
-      url: sites[query],
+      text: `=> ${site}`,
+      url: site,
     });
   }
 };
