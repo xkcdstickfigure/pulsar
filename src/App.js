@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
+import { generate as randomString } from "randomstring";
 
 const emptyData = {
   items: [],
 };
+let queryId;
 
 export default () => {
   const [query, setQuery] = useState("");
@@ -14,10 +16,12 @@ export default () => {
 
   // Handle Input
   useEffect(() => {
-    if (query) window.Pulsar.query(query).then((response) => {
-      if (query) setData(response);
-    });
-    else setData(emptyData);
+    if (query) {
+      queryId = randomString(32);
+      window.Pulsar.query(queryId, query).then((response) => {
+        if (query && queryId === response.id) setData(response);
+      });
+    } else setData(emptyData);
   }, [query]);
 
   // Key Press

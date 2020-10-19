@@ -71,5 +71,5 @@ ipcMain.on("set-height", (_event, height) => {
 
 // Query
 ipcMain.on("query", async (event, id, query) =>
-  event.reply(`query-${id}`, await handleQuery(query))
+  event.reply(`query-${id}`, { id, ...(await handleQuery(query)) })
 );

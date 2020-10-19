@@ -1,5 +1,4 @@
 const { ipcRenderer, shell, remote } = require("electron");
-const randomString = require("randomstring").generate;
 
 // Set window height
 const minHeight = 75;
@@ -16,9 +15,8 @@ setInterval(() => {
 // Pulsar object
 window.Pulsar = {
   // Query
-  query: (query) =>
+  query: (id, query) =>
     new Promise((resolve) => {
-      const id = randomString(32);
       ipcRenderer.on(`query-${id}`, (_event, data) => resolve(data));
       ipcRenderer.send("query", id, query);
     }),
