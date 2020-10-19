@@ -3,6 +3,7 @@ import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
 import { generate as randomString } from "randomstring";
+import Spectrum from "./spectrum";
 
 const emptyData = {
   items: [],
@@ -66,6 +67,7 @@ export default () => {
           autoFocus
         />
       </form>
+      {!query && <Spectrum />}
       {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
         <div

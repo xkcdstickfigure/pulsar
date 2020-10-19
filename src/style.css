@@ -23,6 +23,11 @@ input {
     color: #d0d0d0;
 }
 
+.spectrum {
+    width: 100%;
+    height: 75px;
+}
+
 .item, .answer {
     border-top: solid 1px #3b3b3b;
     color: #d0d0d0;
