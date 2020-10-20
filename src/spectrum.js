@@ -21,7 +21,7 @@ export default () => {
     const { width, height } = canvas.current.getBoundingClientRect();
     canvas.current.width = width;
     canvas.current.height = height;
-    c.lineWidth = 5;
+    c.lineWidth = 3;
 
     const newLine = () => {
       const color = colors[Math.floor(Math.random() * colors.length)];
