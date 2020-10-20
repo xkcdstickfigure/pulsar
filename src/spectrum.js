@@ -1,17 +1,6 @@
 import React, { useEffect, createRef } from "react";
 
-let lines = [
-  {
-    r: 35,
-    g: 83,
-    b: 155,
-    a: 1,
-    s: 1,
-    x: 0,
-    y2: 0,
-    y3: 0.01,
-  },
-];
+let lines = [];
 const colors = [
   [35, 83, 155],
   [155, 51, 35],
