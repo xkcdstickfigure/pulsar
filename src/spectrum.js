@@ -34,6 +34,7 @@ export default () => {
         x: 0,
         y2: Math.floor(Math.random() * 100) / 100 - 0.5,
         y3: Math.floor(Math.random() * 100) / 10000 - 0.005,
+        l: Math.floor(Math.random() * 1500) + 500
       });
     };
     newLine();
@@ -53,8 +54,7 @@ export default () => {
         c.beginPath();
         c.moveTo(0, y);
         for (let i = 0; i < line.x; i++) {
-          if (y < height / 2) y3 -= y2 / 1000;
-          else if (y > height / 2) y3 -= y2 / 1000;
+          y3 -= y2 / line.l;
           y2 += y3;
           y += y2;
           c.lineTo(i, y);
