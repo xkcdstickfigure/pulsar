@@ -70,6 +70,6 @@ ipcMain.on("set-height", (_event, height) => {
 });
 
 // Query
-ipcMain.on("query", async (event, id, query) =>
-  event.reply(`query-${id}`, { id, ...(await handleQuery(query)) })
-);
+ipcMain.on("query", async (event, id, query) => {
+  event.reply(`query-${id}`, { id, ...(await handleQuery(query)) }).catch(() => {});
+});
