@@ -34,7 +34,7 @@ export default () => {
         x: 0,
         y2: Math.floor(Math.random() * 100) / 100 - 0.5,
         y3: Math.floor(Math.random() * 100) / 10000 - 0.005,
-        l: Math.floor(Math.random() * 1500) + 500
+        l: Math.floor(Math.random() * 1500) + 500,
       });
     };
     newLine();
