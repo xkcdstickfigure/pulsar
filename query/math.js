@@ -14,6 +14,5 @@ module.exports = (query, data) => {
 
   if (answer === query) return;
   if (answer === "69") answer += " (nice)";
-
-  data.answer = answer;
+  if (answer) data.answer = answer;
 };
