@@ -1,4 +1,4 @@
-const handlers = ["math", "url", "sites", "searchSuggestions"];
+const handlers = ["info", "math", "url", "sites", "searchSuggestions"];
 
 module.exports = async (query) => {
   const data = {

@@ -1,8 +1,9 @@
 const { evaluate } = require("mathjs");
 
 module.exports = (query, data) => {
-  let answer;
+  if (query === "version") return;
 
+  let answer;
   try {
     const result = evaluate(query.replace(/x/g, "*"));
     if (typeof result === "number") {
