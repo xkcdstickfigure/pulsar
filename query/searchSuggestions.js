@@ -17,13 +17,11 @@ module.exports = async (query, data) => {
     url: `https://google.com/search?q=${encodeURIComponent(query)}`,
   });
 
-  if (suggestions.includes(query))
-    suggestions.splice(suggestions.indexOf(query), 1);
-
   suggestions.forEach((s) => {
-    data.items.push({
-      text: `🔍 ${s}`,
-      url: `https://google.com/search?q=${encodeURIComponent(s)}`,
-    });
+    if (s !== query && !s.startsWith("= "))
+      data.items.push({
+        text: `🔍 ${s}`,
+        url: `https://google.com/search?q=${encodeURIComponent(s)}`,
+      });
   });
 };
