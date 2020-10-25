@@ -7,7 +7,10 @@ module.exports = async (query, data) => {
       await axios.get(
         `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(
           query
-        )}`
+        )}`,
+        {
+          responseEncoding: "binary",
+        }
       )
     ).data[1];
   } catch (err) {}
