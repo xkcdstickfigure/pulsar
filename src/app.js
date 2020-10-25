@@ -14,6 +14,7 @@ export default () => {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState(0);
   const [data, setData] = useState(emptyData);
+  const results = data.answer || data.items.length > 0;
 
   // Handle Input
   useEffect(() => {
@@ -67,7 +68,7 @@ export default () => {
           autoFocus
         />
       </form>
-      {!query && <Spectrum />}
+      {!results && <Spectrum />}
       {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
         <div
