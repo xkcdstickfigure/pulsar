@@ -68,6 +68,7 @@ export default () => {
           autoFocus
         />
       </form>
+
       {!results && <Spectrum />}
       {data.answer && <div className="answer">{data.answer}</div>}
       {data.items.map((item, i) => (
@@ -80,6 +81,8 @@ export default () => {
           {item.text}
         </div>
       ))}
+
+      <style>{window.Pulsar.theme}</style>
     </Twemoji>
   );
 };

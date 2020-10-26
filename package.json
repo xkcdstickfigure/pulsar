@@ -20,6 +20,7 @@
     "auto-launch": "^5.0.5",
     "axios": "^0.20.0",
     "electron-is-dev": "^1.2.0",
+    "env-paths": "^2.2.0",
     "mathjs": "^7.5.1",
     "moment": "^2.29.1",
     "randomstring": "^1.1.5",

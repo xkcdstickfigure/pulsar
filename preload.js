@@ -1,4 +1,12 @@
 const { ipcRenderer, shell, remote } = require("electron");
+const paths = require("env-paths")("pulsar", { suffix: "" });
+const fs = require("fs");
+
+// Get theme stylesheet
+let theme = "";
+try {
+  theme = fs.readFileSync(`${paths.config}/theme.css`, "utf8");
+} catch (err) {}
 
 // Set window height
 const minHeight = 75;
@@ -22,4 +30,5 @@ window.Pulsar = {
     }),
   close: () => remote.getCurrentWindow().close(),
   openUrl: (url) => shell.openExternal(url),
+  theme,
 };
