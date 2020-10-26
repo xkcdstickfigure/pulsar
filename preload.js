@@ -12,7 +12,9 @@ try {
 const minHeight = 75;
 let height = 75;
 setInterval(() => {
-  let h = document.querySelector("#root").getBoundingClientRect().height;
+  let h = Math.ceil(
+    document.querySelector("#root").getBoundingClientRect().height
+  );
   if (h < minHeight) h = minHeight;
   if (height !== h) {
     height = h;
