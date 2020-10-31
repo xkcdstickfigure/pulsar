@@ -85,8 +85,10 @@ export default () => {
         <p className="banner">{results.banner}</p>
       ) : data && data.err ? (
         <p className="banner">
-          {errors[data.err] ||
-            "Sorry, Pulsar is having issues connecting to Alles."}
+          {query === "debug error"
+            ? `ERROR: ${data.err}`
+            : errors[data.err] ||
+              "Sorry, Pulsar is having issues connecting to Alles."}
         </p>
       ) : (
         <></>
