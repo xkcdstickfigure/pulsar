@@ -2,7 +2,7 @@ const paths = require("env-paths")("pulsar", { suffix: "" });
 const fs = require("fs");
 const { app } = require("electron");
 
-let apiUrl = "https://pulsar-api.alles.cc",
+let apiUrl = "https://pulsar-api.alles.cc/api",
   credentials;
 
 try {
