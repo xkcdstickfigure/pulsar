@@ -1,6 +1,8 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const isDev = require("electron-is-dev");
 const handleQuery = require("./query");
+const { apiUrl, axiosOptions } = require("./config");
+const axios = require("axios");
 
 // Prevent Multiple Instances
 if (!app.requestSingleInstanceLock()) {
@@ -78,3 +80,19 @@ ipcMain.on("query", async (event, id, query) => {
     });
   } catch (err) {}
 });
+
+// Fetch Data
+let data;
+const fetchData = async () => {
+  try {
+    data = (await axios.get(`${apiUrl}/data`, axiosOptions)).data;
+  } catch (err) {
+    if (err.response) data = err.response.data;
+    else data = undefined;
+  }
+};
+fetchData();
+setInterval(fetchData, 1000);
+setInterval(() => {
+  if (win) win.webContents.send("data", data);
+}, 50);

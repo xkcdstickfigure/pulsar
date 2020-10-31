@@ -34,3 +34,6 @@ window.Pulsar = {
   openUrl: (url) => shell.openExternal(url),
   theme,
 };
+
+// On Data
+ipcRenderer.on("data", (_event, ...args) => (window.Pulsar.data = args[0]));
