@@ -81,6 +81,14 @@ ipcMain.on("query", async (event, id, query) => {
   } catch (err) {}
 });
 
+// Response
+ipcMain.on("response", (_event, response) =>
+  axios
+    .post(`${apiUrl}/response`, { response }, axiosOptions)
+    .then(() => {})
+    .catch(() => {})
+);
+
 // Fetch Data
 let data;
 const fetchData = async () => {

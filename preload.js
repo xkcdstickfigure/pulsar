@@ -30,10 +30,19 @@ window.Pulsar = {
       ipcRenderer.on(`query-${id}`, (_event, data) => resolve(data));
       ipcRenderer.send("query", id, query);
     }),
+
+  // Send Response
+  sendResponse: (response) => ipcRenderer.send("response", response),
+
+  // Close Window
   close: () => remote.getCurrentWindow().close(),
+
+  // Open URL
   openUrl: (url) => shell.openExternal(url),
+
+  // Theme CSS
   theme,
 };
 
 // On Data
-ipcRenderer.on("data", (_event, ...args) => (window.Pulsar.data = args[0]));
+ipcRenderer.on("data", (_event, data) => (window.Pulsar.data = data));

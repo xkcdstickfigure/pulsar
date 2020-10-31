@@ -65,6 +65,7 @@ export default () => {
   const action = async (item) => {
     if (item) {
       if (item.url) await window.Pulsar.openUrl(item.url);
+      if (item.response) window.Pulsar.sendResponse(item.response);
     }
     window.Pulsar.close();
   };
