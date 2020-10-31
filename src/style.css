@@ -28,6 +28,13 @@ input {
     height: 75px;
 }
 
+.banner {
+    padding: 10px 20px;
+    margin: 0;
+    background: #111111;
+    color: #d0d0d0;
+}
+
 .item, .answer {
     border-top: solid 1px #3b3b3b;
     color: #d0d0d0;

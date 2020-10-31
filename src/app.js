@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Twemoji from "react-twemoji";
 import "./style.css";
 import "./inter/inter.css";
+import errors from "./errors";
 import { generate as randomString } from "randomstring";
 import Spectrum from "./spectrum";
+import Twemoji from "react-twemoji";
 
 const emptyResponse = {
   items: [],
@@ -79,6 +80,16 @@ export default () => {
       </form>
 
       {!results && <Spectrum />}
+      {results.banner ? (
+        <p className="banner">{results.banner}</p>
+      ) : data && data.err ? (
+        <p className="banner">
+          {errors[data.err] ||
+            "Sorry, Pulsar is having issues connecting to Alles."}
+        </p>
+      ) : (
+        <></>
+      )}
       {response.answer && <div className="answer">{response.answer}</div>}
       {response.items.map((item, i) => (
         <div
