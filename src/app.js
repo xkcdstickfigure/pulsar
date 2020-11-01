@@ -81,8 +81,8 @@ export default () => {
       </form>
 
       {!results && <Spectrum />}
-      {results.banner ? (
-        <p className="banner">{results.banner}</p>
+      {response.banner ? (
+        <p className="banner">{response.banner}</p>
       ) : data && data.err ? (
         <p className="banner">
           {query === "debug error"
