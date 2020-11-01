@@ -83,15 +83,16 @@ export default () => {
       {!results && <Spectrum />}
       {response.banner ? (
         <p className="banner">{response.banner}</p>
-      ) : data && data.err ? (
-        <p className="banner">
-          {query === "debug error"
-            ? `ERROR: ${data.err}`
-            : errors[data.err] ||
-              "Sorry, Pulsar is having issues connecting to Alles."}
-        </p>
       ) : (
-        <></>
+        data &&
+        data.err && (
+          <p className="banner">
+            {query === "debug error"
+              ? `ERROR: ${data.err}`
+              : errors[data.err] ||
+                "Sorry, Pulsar is having issues connecting to Alles."}
+          </p>
+        )
       )}
       {response.answer && <div className="answer">{response.answer}</div>}
       {response.items.map((item, i) => (
