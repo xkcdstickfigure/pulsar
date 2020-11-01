@@ -1,8 +1,9 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
-const isDev = require("electron-is-dev");
+const electronDev = require("electron-is-dev");
 const handleQuery = require("./query");
 const { apiUrl, axiosOptions } = require("./config");
 const axios = require("axios");
+let dev = electronDev;
 
 // Prevent Multiple Instances
 if (!app.requestSingleInstanceLock()) {
@@ -30,13 +31,15 @@ const createWindow = () => {
     show: false,
   });
   win.loadURL(
-    isDev ? "http://localhost:5000" : `file://${__dirname}/build/index.html`
+    electronDev
+      ? "http://localhost:5000"
+      : `file://${__dirname}/build/index.html`
   );
   win.on("ready-to-show", win.show);
 
   // Close on blur
   win.on("blur", () => {
-    if (!isDev) win.close();
+    if (!dev) win.close();
   });
 
   // On Close
@@ -61,7 +64,7 @@ const AutoLaunch = require("auto-launch");
 const autoLauncher = new AutoLaunch({
   name: "Pulsar",
 });
-if (!isDev) autoLauncher.enable();
+if (!electronDev) autoLauncher.enable();
 
 // Update Window Height
 ipcMain.on("set-height", (_event, height) => {
@@ -74,9 +77,15 @@ ipcMain.on("set-height", (_event, height) => {
 // Query
 ipcMain.on("query", async (event, id, query) => {
   try {
+    const response = await handleQuery(query);
+    if (query === "I am a developer") {
+      dev = true;
+      if (win) win.webContents.openDevTools();
+      response.banner = "Developer Mode Enabled";
+    }
     event.reply(`query-${id}`, {
       id,
-      ...(await handleQuery(query)),
+      ...response,
     });
   } catch (err) {}
 });
