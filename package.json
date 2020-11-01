@@ -5,6 +5,8 @@
     "dev": "concurrently \"BROWSER=none PORT=5000 react-scripts start\" \"electron .\"",
     "format": "prettier --write \"**/*.+(js|json)\"",
     "build-react": "react-scripts build",
+    "build-electron": "electron-packager . --out=dist --overwrite",
+    "build": "yarn build-react && yarn build-electron",
     "dist": "yarn build-react && electron-packager . --out=dist --overwrite --all"
   },
   "devDependencies": {
