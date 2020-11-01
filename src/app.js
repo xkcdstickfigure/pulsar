@@ -28,12 +28,12 @@ export default () => {
 
   // Handle Input
   useEffect(() => {
-    if (query) {
-      queryId = randomString(32);
+    queryId = randomString(32);
+    if (query)
       window.Pulsar.query(queryId, query).then((response) => {
-        if (query && queryId === response.id) setResponse(response);
+        if (queryId === response.id) setResponse(response);
       });
-    } else setResponse(emptyResponse);
+    else setResponse(emptyResponse);
   }, [query]);
 
   // Key Press
