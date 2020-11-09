@@ -7722,11 +7722,6 @@ os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-os-homedir@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
-  integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
-
 os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -11421,26 +11416,6 @@ ws@^6.1.2, ws@^6.2.1:
   integrity sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   dependencies:
     async-limiter "~1.0.0"
-
-xdg-apps@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/xdg-apps/-/xdg-apps-1.1.0.tgz#0bc78990c4007a274d3f6bd1805ab463824bdf7c"
-  integrity sha512-XWIts0jSyj/FY84uaO25tLcDGqUThpOrj07RYJqt3fjRD8WApWea8m2CMn151TpsrEKpIhrxi6JMsb7XpPjqmg==
-  dependencies:
-    xdg-basedir "^2.0.0"
-    xdg-parse "0.0.3"
-
-xdg-basedir@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-2.0.0.tgz#edbc903cc385fc04523d966a335504b5504d1bd2"
-  integrity sha1-7byQPMOF/ARSPZZqM1UEtVBNG9I=
-  dependencies:
-    os-homedir "^1.0.0"
-
-xdg-parse@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/xdg-parse/-/xdg-parse-0.0.3.tgz#db7d7514fce3b06112113c717438e1dc3ab67d06"
-  integrity sha512-ngKgvyAVBUoQceJjyNGl/Kmgvt8YwZL3AmPgCcoQHJ8eEdMaFoWODri5W2mUty4c6+NPpvPqNCtAR1E3/0+erg==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
