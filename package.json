@@ -27,7 +27,8 @@
     "mathjs": "^7.5.1",
     "moment": "^2.29.1",
     "randomstring": "^1.1.5",
-    "react-twemoji": "^0.3.0"
+    "react-twemoji": "^0.3.0",
+    "xdg-apps": "^1.1.0"
   },
   "homepage": "./",
   "browserslist": {
