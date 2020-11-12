@@ -5,9 +5,11 @@ html, body {
     overflow: hidden;
     background: #1e1e1e;
     -webkit-user-select: none;
+    --primary: #23539b;
+    --primary-transparent: #23539bc0;
 }
 
-form {
+form, p {
     margin: 0;
 }
 
@@ -56,4 +58,29 @@ input {
     height: 1em;
     vertical-align: middle;
     display: inline-block;
+}
+
+.authBanner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.authBanner p {
+    margin: auto 0;
+}
+
+button {
+    font-family: Inter;
+    background: var(--primary);
+    color: #d0d0d0;
+    border: none;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 1000px;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-transparent);
 }

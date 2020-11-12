@@ -70,6 +70,16 @@ export default () => {
     window.Pulsar.close();
   };
 
+  // Sign In
+  const signIn = async () => {
+    await window.Pulsar.openUrl(
+      `https://alles.cx/pulsar/auth?token=${encodeURIComponent(
+        data.connectToken
+      )}`
+    );
+    window.Pulsar.close();
+  };
+
   return (
     <Twemoji>
       <form onSubmit={formSubmit}>
@@ -82,16 +92,28 @@ export default () => {
 
       {!results && <Spectrum />}
       {response.banner ? (
-        <p className="banner">{response.banner}</p>
+        <div className="banner">
+          <p>{response.banner}</p>
+        </div>
       ) : (
         data &&
         data.err && (
-          <p className="banner">
-            {query === "debug error"
-              ? `ERROR: ${data.err}`
-              : errors[data.err] ||
-                "Sorry, Pulsar is having issues connecting to Alles."}
-          </p>
+          <div className="banner">
+            {query === "debug error" ? (
+              <p>ERROR: {data.err}</p>
+            ) : data.err === "badAuthorization" && data.connectToken ? (
+              <div className="authBanner">
+                <p>
+                  Sign in with your AllesID to make Pulsar work better for you.
+                </p>
+                <button onClick={signIn}>Sign in</button>
+              </div>
+            ) : (
+              <p>{errors[data.err]}</p> || (
+                <p>Sorry, Pulsar is having issues connecting to Alles.</p>
+              )
+            )}
+          </div>
         )
       )}
       {response.answer && <div className="answer">{response.answer}</div>}

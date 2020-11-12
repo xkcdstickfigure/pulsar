@@ -1,4 +1,4 @@
 {
   "pulsar.unsupportedVersion": "This version of Pulsar is no longer supported.",
-  "badAuthorization": "This client is unregistered."
+  "badAuthorization": "This client is not connected to an AllesID."
 }
