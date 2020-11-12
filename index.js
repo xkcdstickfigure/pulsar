@@ -111,11 +111,9 @@ const fetchData = async () => {
 };
 fetchData();
 setInterval(fetchData, 1000);
-setInterval(() => {
-  if (win) win.webContents.send("data", data);
-}, 50);
 
 // Connect Token
+let connectToken;
 axios
   .post(
     `${apiUrl}/connectToken`,
@@ -126,7 +124,19 @@ axios
     axiosOptions
   )
   .then((res) => {
-    const { token } = res.data;
-    console.log(token);
+    connectToken = res.data.token;
+    console.log(connectToken);
   })
   .catch(() => {});
+
+// Pass Data to Renderer
+setInterval(() => {
+  if (win)
+    win.webContents.send(
+      "data",
+      data && {
+        ...data,
+        connectToken,
+      }
+    );
+}, 50);
