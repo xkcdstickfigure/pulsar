@@ -3,6 +3,7 @@ const electronDev = require("electron-is-dev");
 const handleQuery = require("./query");
 const { apiUrl, axiosOptions } = require("./config");
 const axios = require("axios");
+const os = require("os");
 let dev = electronDev;
 
 // Prevent Multiple Instances
@@ -113,3 +114,19 @@ setInterval(fetchData, 1000);
 setInterval(() => {
   if (win) win.webContents.send("data", data);
 }, 50);
+
+// Connect Token
+axios
+  .post(
+    `${apiUrl}/connectToken`,
+    {
+      name: os.hostname(),
+      platform: os.platform(),
+    },
+    axiosOptions
+  )
+  .then((res) => {
+    const { token } = res.data;
+    console.log(token);
+  })
+  .catch(() => {});
