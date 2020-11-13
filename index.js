@@ -154,12 +154,14 @@ axios
 
 // Pass Data to Renderer
 setInterval(() => {
-  if (win)
-    win.webContents.send(
-      "data",
-      data && {
-        ...data,
-        connectToken,
-      }
-    );
+  try {
+    if (win)
+      win.webContents.send(
+        "data",
+        data && {
+          ...data,
+          connectToken,
+        }
+      );
+  } catch (err) {}
 }, 50);
