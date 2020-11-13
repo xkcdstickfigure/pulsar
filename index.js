@@ -125,7 +125,21 @@ axios
   )
   .then((res) => {
     connectToken = res.data.token;
-    console.log(connectToken);
+    setInterval(() => {
+      if (!data || data.err)
+        axios
+          .post(
+            `${apiUrl}/activate`,
+            {
+              token: connectToken,
+            },
+            axiosOptions
+          )
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch(() => {});
+    }, 5000);
   })
   .catch(() => {});
 
