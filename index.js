@@ -1,9 +1,10 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const electronDev = require("electron-is-dev");
 const handleQuery = require("./query");
-const { apiUrl, axiosOptions } = require("./config");
+const { paths, apiUrl, axiosOptions } = require("./config");
 const axios = require("axios");
 const os = require("os");
+const fs = require("fs");
 let dev = electronDev;
 
 // Prevent Multiple Instances
@@ -136,7 +137,15 @@ axios
             axiosOptions
           )
           .then((res) => {
-            console.log(res.data);
+            fs.writeFileSync(
+              `${paths.config}/credentials.json`,
+              JSON.stringify({
+                id: res.data.id,
+                secret: res.data.secret,
+              })
+            );
+            app.relaunch();
+            app.exit();
           })
           .catch(() => {});
     }, 5000);

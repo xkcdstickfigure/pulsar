@@ -14,6 +14,7 @@ try {
 } catch (err) {}
 
 module.exports = {
+  paths,
   apiUrl,
   axiosOptions: {
     headers: {
