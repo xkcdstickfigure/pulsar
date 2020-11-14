@@ -1,4 +1,10 @@
-const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  globalShortcut,
+  ipcMain,
+  Notification,
+} = require("electron");
 const electronDev = require("electron-is-dev");
 const handleQuery = require("./query");
 const { paths, apiUrl, axiosOptions } = require("./config");
@@ -137,6 +143,7 @@ axios
             axiosOptions
           )
           .then((res) => {
+            // Save Credentials
             fs.writeFileSync(
               `${paths.config}/credentials.json`,
               JSON.stringify({
@@ -144,6 +151,14 @@ axios
                 secret: res.data.secret,
               })
             );
+
+            // Notification
+            new Notification({
+              title: "You're connected!",
+              body: "Pulsar was successfully linked to an AllesID.",
+            }).show();
+
+            // Restart App
             app.relaunch();
             app.exit();
           })
