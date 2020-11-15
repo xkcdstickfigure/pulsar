@@ -65,31 +65,43 @@ input {
   justify-content: center;
 }
 
-.article {
-  background: var(--four);
-  color: var(--two);
+.articles a {
   width: 200px;
   margin: 20px;
-  position: relative;
   border-radius: 5px;
   overflow: hidden;
-  cursor: pointer;
   border: solid 2px transparent;
 }
 
-.article:hover,
-.article:focus {
+.articles a:hover,
+.articles a:focus {
   border-color: var(--one);
 }
 
-.article div:nth-child(1) {
+.article {
+  background: var(--four);
+  color: var(--two);
+  width: 100%;
+  position: relative;
+}
+
+.article .image {
   width: 100%;
   height: 125px;
   background-position: center;
   background-size: cover;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
 }
 
-.article div:nth-child(2) {
+.article .image div {
+  background: linear-gradient(0deg, var(--four) 0%, #00000000 100%);
+  width: 100%;
+  height: 20px;
+}
+
+.article .info {
   padding: 10px;
   padding-bottom: 35px;
 }
