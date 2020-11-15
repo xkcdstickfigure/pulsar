@@ -2,6 +2,11 @@ const paths = require("env-paths")("pulsar", { suffix: "" });
 const fs = require("fs");
 const { app } = require("electron");
 
+// Create Config Directory
+if (!fs.existsSync(paths.config))
+  fs.mkdirSync(paths.config, { recursive: true });
+
+// API URL and Credentials
 let apiUrl = "https://pulsar-api.alles.cc/api",
   credentials;
 
@@ -13,6 +18,7 @@ try {
   credentials = require(`${paths.config}/credentials.json`);
 } catch (err) {}
 
+// Export Config
 module.exports = {
   paths,
   apiUrl,
