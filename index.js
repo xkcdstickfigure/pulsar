@@ -33,6 +33,7 @@ const createWindow = () => {
     frame: false,
     resizable: false,
     alwaysOnTop: true,
+    skipTaskbar: true,
     webPreferences: {
       preload: `${__dirname}/preload.js`,
       enableRemoteModule: true,
