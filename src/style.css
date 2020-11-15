@@ -27,6 +27,22 @@ a {
   text-decoration: none;
 }
 
+a.button {
+  background: var(--one);
+  color: var(--two);
+  border: none;
+  padding: 5px 15px;
+  font-size: 15px;
+  border: solid 2px var(--one);
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+a.button:hover,
+a.button:focus {
+  border-color: var(--two);
+}
+
 input {
   font-family: Inter;
   border: none;
@@ -135,16 +151,4 @@ input {
 
 .authBanner p {
   margin: auto 0;
-}
-
-button {
-  font-family: Inter;
-  background: var(--one);
-  color: var(--two);
-  border: none;
-  padding: 5px 15px;
-  font-size: 15px;
-  border-radius: 1000px;
-  outline: none;
-  cursor: pointer;
 }

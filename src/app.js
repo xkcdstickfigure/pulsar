@@ -71,16 +71,6 @@ export default () => {
     window.Pulsar.close();
   };
 
-  // Sign In
-  const signIn = async () => {
-    await window.Pulsar.openUrl(
-      `https://alles.cx/pulsar/auth?token=${encodeURIComponent(
-        data.connectToken
-      )}`
-    );
-    window.Pulsar.close();
-  };
-
   return (
     <Twemoji>
       <form onSubmit={formSubmit}>
@@ -116,7 +106,16 @@ export default () => {
                 <p>
                   Sign in with your AllesID to make Pulsar work better for you.
                 </p>
-                <button onClick={signIn}>Sign in</button>
+                <a
+                  href={`https://alles.cx/pulsar/auth?token=${encodeURIComponent(
+                    data.connectToken
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  Sign in
+                </a>
               </div>
             ) : (
               <p>{errors[data.err]}</p> || (
