@@ -1,13 +1,20 @@
+:root {
+  --one: #23539b;
+  --two: #d0d0d0;
+  --three: #1e1e1e;
+  --four: #2e2e2e;
+  --five: #111111;
+  --six: #3b3b3b;
+}
+
 html,
 body {
   margin: 0;
   font-family: Inter;
   height: 100%;
   overflow: hidden;
-  background: #1e1e1e;
+  background: var(--three);
   -webkit-user-select: none;
-  --primary: #23539b;
-  --primary-transparent: #23539bc0;
 }
 
 form,
@@ -29,7 +36,7 @@ input {
   font-size: 40px;
   outline: none;
   background: none;
-  color: #d0d0d0;
+  color: var(--two);
 }
 
 .spectrum {
@@ -43,8 +50,8 @@ input {
 }
 
 .article {
-  background: #2e2e2e;
-  color: #d0d0d0;
+  background: var(--four);
+  color: var(--two);
   width: 200px;
   margin: 20px;
   position: relative;
@@ -56,7 +63,7 @@ input {
 
 .article:hover,
 .article:focus {
-  border-color: #23539b;
+  border-color: var(--one);
 }
 
 .article div:nth-child(1) {
@@ -93,14 +100,14 @@ input {
 .banner {
   padding: 10px 20px;
   margin: 0;
-  background: #111111;
-  color: #d0d0d0;
+  background: var(--five);
+  color: var(--two);
 }
 
 .item,
 .answer {
-  border-top: solid 1px #3b3b3b;
-  color: #d0d0d0;
+  border-top: solid 1px var(--six);
+  color: var(--two);
   padding: 10px 20px;
   white-space: nowrap;
 }
@@ -108,11 +115,11 @@ input {
 .answer {
   font-size: 30px;
   padding-left: 15px;
-  border-left: solid 5px #d0d0d0;
+  border-left: solid 5px var(--two);
 }
 
 .item.selected {
-  background: #2e2e2e;
+  background: var(--four);
 }
 
 .emoji {
@@ -132,16 +139,12 @@ input {
 
 button {
   font-family: Inter;
-  background: var(--primary);
-  color: #d0d0d0;
+  background: var(--one);
+  color: var(--two);
   border: none;
   padding: 5px 15px;
   font-size: 15px;
   border-radius: 1000px;
   outline: none;
   cursor: pointer;
-}
-
-button:hover {
-  background: var(--primary-transparent);
 }
