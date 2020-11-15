@@ -4,6 +4,7 @@ const {
   globalShortcut,
   ipcMain,
   Notification,
+  shell,
 } = require("electron");
 const electronDev = require("electron-is-dev");
 const handleQuery = require("./query");
@@ -38,11 +39,15 @@ const createWindow = () => {
     },
     show: false,
   });
+
+  // Load URL
   win.loadURL(
     electronDev
       ? "http://localhost:5000"
       : `file://${__dirname}/build/index.html`
   );
+
+  // Show when ready
   win.on("ready-to-show", win.show);
 
   // Close on blur
@@ -51,8 +56,13 @@ const createWindow = () => {
   });
 
   // On Close
-  win.on("close", () => {
-    win = null;
+  win.on("close", () => (win = null));
+
+  // Open URLs in browser
+  win.webContents.on("new-window", (e, url) => {
+    e.preventDefault();
+    shell.openExternal(url);
+    win.close();
   });
 };
 
