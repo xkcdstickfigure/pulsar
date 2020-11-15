@@ -1,86 +1,89 @@
-html, body {
-    margin: 0;
-    font-family: Inter;
-    height: 100%;
-    overflow: hidden;
-    background: #1e1e1e;
-    -webkit-user-select: none;
-    --primary: #23539b;
-    --primary-transparent: #23539bc0;
+html,
+body {
+  margin: 0;
+  font-family: Inter;
+  height: 100%;
+  overflow: hidden;
+  background: #1e1e1e;
+  -webkit-user-select: none;
+  --primary: #23539b;
+  --primary-transparent: #23539bc0;
 }
 
-form, p {
-    margin: 0;
+form,
+p {
+  margin: 0;
 }
 
 input {
-    font-family: Inter;
-    border: none;
-    width: 100%;
-    height: 75px;
-    padding: 12px 20px;
-    font-size: 40px;
-    outline: none;
-    background: none;
-    color: #d0d0d0;
+  font-family: Inter;
+  border: none;
+  width: 100%;
+  height: 75px;
+  padding: 12px 20px;
+  font-size: 40px;
+  outline: none;
+  background: none;
+  color: #d0d0d0;
 }
 
 .spectrum {
-    width: 100%;
-    height: 75px;
+  width: 100%;
+  height: 75px;
 }
 
 .banner {
-    padding: 10px 20px;
-    margin: 0;
-    background: #111111;
-    color: #d0d0d0;
+  padding: 10px 20px;
+  margin: 0;
+  background: #111111;
+  color: #d0d0d0;
 }
 
-.item, .answer {
-    border-top: solid 1px #3b3b3b;
-    color: #d0d0d0;
-    padding: 10px 20px;
-    white-space: nowrap;
+.item,
+.answer {
+  border-top: solid 1px #3b3b3b;
+  color: #d0d0d0;
+  padding: 10px 20px;
+  white-space: nowrap;
 }
 
 .answer {
-    font-size: 30px;
-    padding-left: 15px;
-    border-left: solid 5px #d0d0d0;
+  font-size: 30px;
+  padding-left: 15px;
+  border-left: solid 5px #d0d0d0;
 }
 
 .item.selected {
-    background: #2e2e2e;
+  background: #2e2e2e;
 }
 
 .emoji {
-    height: 1em;
-    vertical-align: middle;
-    display: inline-block;
+  height: 1em;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .authBanner {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .authBanner p {
-    margin: auto 0;
+  margin: auto 0;
 }
 
 button {
-    font-family: Inter;
-    background: var(--primary);
-    color: #d0d0d0;
-    border: none;
-    padding: 5px 15px;
-    font-size: 15px;
-    border-radius: 1000px;
-    outline: none;
-    cursor: pointer;
+  font-family: Inter;
+  background: var(--primary);
+  color: #d0d0d0;
+  border: none;
+  padding: 5px 15px;
+  font-size: 15px;
+  border-radius: 1000px;
+  outline: none;
+  cursor: pointer;
 }
 
 button:hover {
-    background: var(--primary-transparent);
+  background: var(--primary-transparent);
 }
