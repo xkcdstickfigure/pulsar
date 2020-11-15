@@ -4,7 +4,6 @@ import "./inter/inter.css";
 import errors from "./errors";
 import { generate as randomString } from "randomstring";
 import Spectrum from "./spectrum";
-import Article from "./article";
 import Twemoji from "react-twemoji";
 
 const emptyResponse = {
@@ -82,14 +81,6 @@ export default () => {
       </form>
 
       {!results && <Spectrum />}
-
-      {!results && data && data.articles && (
-        <div className="articles">
-          {data.articles.map((a, i) => (
-            <Article key={i} {...a} />
-          ))}
-        </div>
-      )}
 
       {response.banner ? (
         <div className="banner">
