@@ -20,6 +20,12 @@ if (!app.requestSingleInstanceLock()) {
   process.exit();
 }
 
+// Get theme stylesheet
+let theme = "";
+try {
+  theme = fs.readFileSync(`${paths.config}/theme.css`, "utf8");
+} catch (err) {}
+
 // Create Window
 let win;
 const createWindow = () => {
@@ -133,6 +139,31 @@ let data;
 const fetchData = async () => {
   try {
     data = (await axios.get(`${apiUrl}/data`, axiosOptions)).data;
+
+    // Get new theme
+    let themeId = theme.split("\n")[0];
+    if (themeId.split(" ").length === 3) themeId = themeId.split(" ")[1];
+    if (data.theme && data.theme !== themeId) {
+      try {
+        theme =
+          "/* " +
+          data.theme +
+          " */\n\n" +
+          (await axios.get(`https://pulsar-themes.alles.cc/${data.theme}.css`))
+            .data;
+        fs.writeFileSync(`${paths.config}/theme.css`, theme);
+
+        // Notification
+        new Notification({
+          title: "New Theme!",
+          body: "A new theme was added to Pulsar.",
+        }).show();
+
+        // Restart App
+        app.relaunch();
+        app.exit();
+      } catch (err) {}
+    }
   } catch (err) {
     if (err.response) data = err.response.data;
     else data = undefined;
