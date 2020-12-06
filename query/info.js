@@ -1,5 +1,5 @@
 const { app } = require("electron");
-const paths = require("env-paths")("pulsar", { suffix: "" });
+const { paths } = require("../config");
 
 module.exports = (query, data) => {
   if (query === "version")
