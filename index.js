@@ -110,12 +110,23 @@ ipcMain.on("query", async (event, id, query) => {
 });
 
 // Response
-ipcMain.on("response", (_event, response) =>
-  axios
-    .post(`${apiUrl}/response`, { response }, axiosOptions)
-    .then(() => {})
-    .catch(() => {})
-);
+ipcMain.on("response", async (_event, response) => {
+  if (!response.startsWith("$"))
+    axios
+      .post(`${apiUrl}/response`, { response }, axiosOptions)
+      .then(() => {})
+      .catch(() => {});
+  else {
+    const cmd = response.split(" ")[0].substr(1);
+    const commands = {
+      restart: () => {
+        app.relaunch();
+        app.exit();
+      },
+    };
+    if (commands[cmd]) await commands[cmd]();
+  }
+});
 
 // Fetch Data
 let data;
