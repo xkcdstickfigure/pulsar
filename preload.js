@@ -1,6 +1,7 @@
 const { ipcRenderer, shell, remote } = require("electron");
 const paths = require("env-paths")("pulsar", { suffix: "" });
 const fs = require("fs");
+const { exec } = require("child_process");
 
 // Get theme stylesheet
 let theme = "";
@@ -35,6 +36,9 @@ window.Pulsar = {
 
   // Send Response
   sendResponse: (response) => ipcRenderer.send("response", response),
+
+  // Execute Command
+  exec: (command) => exec(command),
 
   // Close Window
   close: () => remote.getCurrentWindow().close(),

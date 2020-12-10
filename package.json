@@ -25,10 +25,12 @@
     "axios": "^0.20.0",
     "electron-is-dev": "^1.2.0",
     "env-paths": "^2.2.0",
+    "leven": "^3.1.0",
     "mathjs": "^7.5.1",
     "moment": "^2.29.1",
     "randomstring": "^1.1.5",
-    "react-twemoji": "^0.3.0"
+    "react-twemoji": "^0.3.0",
+    "xdg-apps": "^1.1.0"
   },
   "homepage": "./",
   "browserslist": {

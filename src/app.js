@@ -66,6 +66,7 @@ export default () => {
     if (item) {
       if (item.url) await window.Pulsar.openUrl(item.url);
       if (item.response) window.Pulsar.sendResponse(item.response);
+      if (item.exec) window.Pulsar.exec(item.exec);
     }
     window.Pulsar.close();
   };

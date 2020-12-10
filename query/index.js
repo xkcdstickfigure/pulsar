@@ -1,6 +1,13 @@
 const { apiUrl, axiosOptions } = require("../config");
 const axios = require("axios");
-const handlers = ["info", "math", "datetime", "url", "searchSuggestions"];
+const handlers = [
+  "info",
+  "math",
+  "apps",
+  "datetime",
+  "url",
+  "searchSuggestions",
+];
 
 module.exports = async (query) => {
   let data = {
