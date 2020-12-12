@@ -3,7 +3,7 @@ import "./style.css";
 import "./inter/inter.css";
 import errors from "./errors";
 import { generate as randomString } from "randomstring";
-import Spectrum from "./spectrum";
+import { Spectrum } from "./spectrum";
 import Twemoji from "react-twemoji";
 
 const emptyResponse = {
@@ -11,7 +11,7 @@ const emptyResponse = {
 };
 let queryId;
 
-export default () => {
+export const App = () => {
   const [data, setData] = useState();
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState(0);

@@ -12,7 +12,7 @@ const colors = [
   [237, 167, 17],
 ];
 
-export default () => {
+export const Spectrum = () => {
   const canvas = createRef();
 
   useEffect(() => {
